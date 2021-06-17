@@ -9,6 +9,7 @@ import org.neuroph.nnet.Perceptron;
 import org.neuroph.nnet.comp.neuron.BiasNeuron;
 import org.neuroph.util.ConnectionFactory;
 
+
 import java.util.Arrays;
 
 public class AndPerceptronNoLearn {

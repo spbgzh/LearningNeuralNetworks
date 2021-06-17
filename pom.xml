@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>com.github.neuroph</groupId>
-            <artifactId>Neuroph</artifactId>
+            <artifactId>neuroph-core</artifactId>
             <version>2.98</version>
         </dependency>
     </dependencies>
