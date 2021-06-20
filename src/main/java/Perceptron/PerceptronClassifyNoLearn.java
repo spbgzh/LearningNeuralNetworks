@@ -15,7 +15,6 @@ public class PerceptronClassifyNoLearn {
         data.add(new DataSetRow(new double[]{-67,-34},new double[]{0,0}));
         data.add(new DataSetRow(new double[]{-33,43},new double[]{0,1}));
         NeuralNetwork myPerceptron= new Perceptron(2,2);
-        //myPerceptron.learn(data);
         myPerceptron.setWeights(new double[]{1,0,0,1});
         System.out.println(Arrays.toString(myPerceptron.getWeights()));
         myPerceptron.save("output/Perceptron/PerceptronClassifyNoLearn.nnet");

@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class AndPerceptronNoLearn {
     public static void main(String[] args) {
-        DataSet data = new DataSet(2, 1);
+         DataSet data = new DataSet(2, 1);
         data.add(new DataSetRow(new double[]{1, 1}, new double[]{Double.NaN}));
         data.add(new DataSetRow(new double[]{1, 0}, new double[]{Double.NaN}));
         data.add(new DataSetRow(new double[]{0, 1}, new double[]{Double.NaN}));

@@ -30,20 +30,17 @@ public class AndPerceptron {
                 myPerceptron.getLayerAt(1).getNeuronAt(0));
         myPerceptron.getLayerAt(1).getNeuronAt(0).setTransferFunction(new Step());
 
-        LearningEventListener listener= new LearningEventListener() {
-            @Override
-            public void handleLearningEvent(LearningEvent event) {
-                IterativeLearning flag = (IterativeLearning)event.getSource();
-                System.out.println("iterate:"+flag.getCurrentIteration());
-                System.out.println(Arrays.toString(flag.getNeuralNetwork().getWeights()));
-            }
+        LearningEventListener listener= event -> {
+            IterativeLearning flag = (IterativeLearning)event.getSource();
+            System.out.println("Iterate:"+flag.getCurrentIteration());
+            System.out.println(Arrays.toString(flag.getNeuralNetwork().getWeights()));
         };
 
         LearningRule rule = new PerceptronLearning();
         rule.addListener(listener);
         myPerceptron.setLearningRule(rule);
         myPerceptron.learn(data);
-        myPerceptron.save("output/Perceptron/SimplePerceptron.nnet");
+        myPerceptron.save("output/Perceptron/AndPerceptron.nnet");
         for (DataSetRow row : data.getRows()) {
             myPerceptron.setInput(row.getInput());
             myPerceptron.calculate();
