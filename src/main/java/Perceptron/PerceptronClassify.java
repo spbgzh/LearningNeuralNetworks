@@ -27,7 +27,9 @@ public class PerceptronClassify {
             System.out.println("Iterate:"+flag.getCurrentIteration());
             System.out.println(Arrays.toString(flag.getNeuralNetwork().getWeights()));
         };
-        LearningRule rule = new PerceptronLearning();
+        PerceptronLearning perceptronLearningRule=new PerceptronLearning();
+        perceptronLearningRule.setMaxError(0.01);
+        LearningRule rule = perceptronLearningRule;
         rule.addListener(listener);
         myPerceptron.setLearningRule(rule);
         myPerceptron.learn(RandomLocation.randomLocation());

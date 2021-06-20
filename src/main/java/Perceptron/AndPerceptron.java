@@ -4,7 +4,6 @@ import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.Neuron;
 import org.neuroph.core.data.DataSet;
 import org.neuroph.core.data.DataSetRow;
-import org.neuroph.core.events.LearningEvent;
 import org.neuroph.core.events.LearningEventListener;
 import org.neuroph.core.learning.IterativeLearning;
 import org.neuroph.core.learning.LearningRule;
@@ -36,7 +35,9 @@ public class AndPerceptron {
             System.out.println(Arrays.toString(flag.getNeuralNetwork().getWeights()));
         };
 
-        LearningRule rule = new PerceptronLearning();
+        PerceptronLearning perceptronLearningRule = new PerceptronLearning();
+        perceptronLearningRule.setMaxError(0.01);
+        LearningRule rule = perceptronLearningRule;
         rule.addListener(listener);
         myPerceptron.setLearningRule(rule);
         myPerceptron.learn(data);
