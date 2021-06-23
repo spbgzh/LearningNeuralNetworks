@@ -4,7 +4,6 @@ import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.Neuron;
 import org.neuroph.core.data.DataSet;
 import org.neuroph.core.data.DataSetRow;
-import org.neuroph.core.learning.LearningRule;
 import org.neuroph.core.transfer.Step;
 import org.neuroph.nnet.Perceptron;
 import org.neuroph.nnet.comp.neuron.BiasNeuron;
