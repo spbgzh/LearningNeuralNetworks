@@ -1,4 +1,4 @@
-package Mlperceptron;
+package MlPerceptron;
 
 import org.neuroph.core.Layer;
 import org.neuroph.core.NeuralNetwork;
@@ -7,7 +7,6 @@ import org.neuroph.core.data.DataSet;
 import org.neuroph.core.data.DataSetRow;
 import org.neuroph.core.input.And;
 import org.neuroph.core.transfer.Linear;
-import org.neuroph.nnet.MultiLayerPerceptron;
 import org.neuroph.nnet.comp.neuron.BiasNeuron;
 import org.neuroph.nnet.comp.neuron.InputNeuron;
 import org.neuroph.util.*;
@@ -22,9 +21,6 @@ public class MlPerceptronAndOutputNoLearn {
         Layer input= LayerFactory.createLayer(2,inputNeuronProperties);
 
         Layer middle = LayerFactory.createLayer(2,TransferFunctionType.STEP);
-
-        Neuron outputNeutron = new Neuron();
-        outputNeutron.setInputFunction(new And());
         Layer output= LayerFactory.createLayer(1,TransferFunctionType.LINEAR);
         output.getNeuronAt(0).setInputFunction(new And());
 
@@ -34,15 +30,10 @@ public class MlPerceptronAndOutputNoLearn {
 
         myMlPerceptron.setInputNeurons(myMlPerceptron.getLayerAt(0).getNeurons());
         myMlPerceptron.setOutputNeurons(myMlPerceptron.getLayerAt(2).getNeurons());
-        BiasNeuron Bia =new BiasNeuron();
         myMlPerceptron.getLayerAt(0).addNeuron(new BiasNeuron());
 
         ConnectionFactory.fullConnect(myMlPerceptron.getLayerAt(0), myMlPerceptron.getLayerAt(1));
         ConnectionFactory.fullConnect(myMlPerceptron.getLayerAt(1), myMlPerceptron.getLayerAt(2));
-
-
-
-
 
         DataSet data = new DataSet(2,1);
         data.add(new double[]{0, 0}, new double[]{Double.NaN});
@@ -50,7 +41,7 @@ public class MlPerceptronAndOutputNoLearn {
         data.add(new double[]{1, 0}, new double[]{Double.NaN});
         data.add(new double[]{1, 1}, new double[]{Double.NaN});
         myMlPerceptron.setWeights(new double[]{2,2,-1,-2,-2,3,1,1});
-        myMlPerceptron.save("output/Mlperceptron/MlPerceptronAndOutputNoLearn.nnet");
+        myMlPerceptron.save("output/MlPerceptron/MlPerceptronAndOutputNoLearn.nnet");
 
         for (DataSetRow row : data.getRows()) {
             myMlPerceptron.setInput(row.getInput());
