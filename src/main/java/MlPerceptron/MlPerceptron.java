@@ -23,7 +23,7 @@ public class MlPerceptron {
 
         NeuronProperties inputNeuronProperties = new NeuronProperties(InputNeuron.class, Linear.class);
         Layer input = LayerFactory.createLayer(2, inputNeuronProperties);
-        Layer middle = LayerFactory.createLayer(2, TransferFunctionType.SIGMOID);
+        Layer middle = LayerFactory.createLayer(4, TransferFunctionType.SIGMOID);
         Layer output = LayerFactory.createLayer(1,TransferFunctionType.STEP);
 
         myMlPerceptron.addLayer(input);
