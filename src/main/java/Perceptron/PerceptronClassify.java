@@ -34,11 +34,33 @@ public class PerceptronClassify {
         myPerceptron.setLearningRule(rule);
         myPerceptron.learn(RandomLocation.randomLocation());
         myPerceptron.save("output/Perceptron/PerceptronClassify.nnet");
-        PerceptronClassifyNoLearn.testNeuralNetwork(myPerceptron,data);
+        testNeuralNetwork(myPerceptron,data);
 
+    }
+    public static void testNeuralNetwork(NeuralNetwork nnet, DataSet tset) {
+
+        for (DataSetRow dataRow : tset.getRows()){
+            nnet.setInput(dataRow.getInput());
+            nnet.calculate();
+            double[] networkOutput = nnet.getOutput();
+            System.out.print("Input: " + Arrays.toString(dataRow.getInput()));
+            System.out.println(" Output: " + Arrays.toString(networkOutput));
+            System.out.println(Arrays.toString(dataRow.getInput()) + "=" + posToString(networkOutput));
+        }
+    }
+    public static String posToString(double[] networkOutput ){
+        if((networkOutput[0]+networkOutput[1])==2){
+            return "第一象限";
+        }else if((networkOutput[0]+networkOutput[1])==0){
+            return "第三象限";
+        }else if((networkOutput[0]-networkOutput[1])==1){
+            return "第四象限";
+        }
+        return "第二象限";
     }
 
 }
+
 
 class RandomLocation{
     static Random r = new Random();
