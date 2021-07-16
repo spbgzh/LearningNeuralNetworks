@@ -40,6 +40,7 @@ public class MlPerceptron {
             System.out.println("Iterate:"+flag.getCurrentIteration());
             System.out.println(Arrays.toString(flag.getNeuralNetwork().getWeights()));
         };
+
         myMlPerceptron.randomizeWeights(new NguyenWidrowRandomizer(-2,3));
         LearningRule rule = new BackPropagation();
         rule.addListener(listener);
