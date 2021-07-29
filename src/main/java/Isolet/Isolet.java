@@ -59,7 +59,8 @@ public class Isolet {
         //调整数据集，数据集来源:UCI ML isolet(https://archive.ics.uci.edu/ml/datasets/isolet)
         DataSet trainData = DataSet.load("src/main/resources/DataSet/Isolet/DataSetIsolet.tset");
 
-        myMlPerceptron.learn(trainData);
+        //已经训练完成了，就别再跑了
+        //myMlPerceptron.learn(trainData);
         myMlPerceptron.save("output/Isolet/Isolet.nnet");
 
     }
